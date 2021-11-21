@@ -14,7 +14,7 @@ data class WeatherForecastResponse(
     @SerializedName("cod")
     var cod: String? = null,
     @SerializedName("list")
-    var list: List<Lists?>? = null,
+    var list: List<ListITem?>? = null,
     @SerializedName("message")
     var message: Int? = null
 ) : Parcelable {
@@ -47,7 +47,7 @@ data class WeatherForecastResponse(
     }
 
     @Parcelize
-    data class Lists(
+    data class ListITem(
         @SerializedName("clouds")
         var clouds: Clouds? = null,
         @SerializedName("dt")
