@@ -1,4 +1,4 @@
-package com.bharat.weatherapp
+package com.bharat.weatherapp.ui
 
 import android.app.Application
 import androidx.appcompat.app.AppCompatActivity
@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         )).get(WeatherViewModel::class.java)
 
         observeData()
-
+        initWeatherForecast()
     }
 
     private fun observeData() {
@@ -42,8 +42,11 @@ class MainActivity : AppCompatActivity() {
             Log.d("current temp ", it.toString())
         })
 
-        weatherViewModel.getWeatherForecastDetails().observe(this, Observer {
-            Log.d("weather Forecast ", it.toString())
-        })
     }
+
+    private fun initWeatherForecast() {
+        val fragment = WeatherForecastFragment()
+        fragment.show(supportFragmentManager, "bottom")
+    }
+
 }
